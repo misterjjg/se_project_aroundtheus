@@ -27,15 +27,10 @@ The way you'll do this at work is by exporting images directly from Figma — we
 
 Link to GitHub Pages: https://misterjjg.github.io/se_project_aroundtheus/
 
-<<<<<<< HEAD
-=======
 Desktop Resolution Screenshoot
 ![Project 3 Desktop resolution](https://github.com/misterjjg/se_project_aroundtheus/assets/132124819/9af64cca-4448-47fe-b383-be1ee3c1a72c)
 
 Mobile Resolution Screenshot
 ![Project 3 Mobile resolution](https://github.com/misterjjg/se_project_aroundtheus/assets/132124819/8cac87db-fa8d-4c3c-9ef6-7bbf0c8a5952)
 
-
-
->>>>>>> ec51defc9e5d4625bef154f32ce5adc77cbfa807
 Good luck and have fun!

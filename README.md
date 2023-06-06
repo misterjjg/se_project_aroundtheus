@@ -26,8 +26,13 @@ This is project 3 of the Practicum course that includes features such as flexbox
 The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
 
 Link to GitHub Pages: https://misterjjg.github.io/se_project_aroundtheus/
+
+Desktop Resolution Screenshoot
 ![Project 3 Desktop resolution](https://github.com/misterjjg/se_project_aroundtheus/assets/132124819/9af64cca-4448-47fe-b383-be1ee3c1a72c)
-![Project 3 Moblie resolution](https://github.com/misterjjg/se_project_aroundtheus/assets/132124819/805b0c16-d878-4df3-a5b0-4267333e35bc)
+
+Mobile Resolution Screenshot
+![Project 3 Mobile resolution](https://github.com/misterjjg/se_project_aroundtheus/assets/132124819/8cac87db-fa8d-4c3c-9ef6-7bbf0c8a5952)
+
 
 
 Good luck and have fun!

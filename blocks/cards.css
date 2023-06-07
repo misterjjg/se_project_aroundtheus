@@ -10,6 +10,8 @@
   grid-gap: 20px 17px;
   padding: 0;
   list-style-type: none;
+  padding-top: 51px;
+  margin: auto;
 }
 
 .cards__content {
@@ -58,4 +60,15 @@
 
 .cards__like-button:hover {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .cards__list {
+    padding-top: 0;
+  }
 }

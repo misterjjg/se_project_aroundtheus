@@ -2,6 +2,7 @@
   margin-top: 65px;
   margin-bottom: 60px;
   max-width: 880px;
+  width: 100%;
 }
 
 .footer__title {
@@ -20,10 +21,14 @@
 }
 
 @media screen and (max-width: 480px) {
+  .footer {
+    margin: 0;
+  }
   .footer__title {
     font-size: 14px;
-    display: block;
     line-height: 1.2;
-    margin-left: 80px;
+    margin-left: 19px;
+    margin-top: 48px;
+    margin-bottom: 36px;
   }
 }

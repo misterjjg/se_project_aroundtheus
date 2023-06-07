@@ -18,10 +18,3 @@
   margin: 0 auto;
   position: relative;
 }
-
-@media screen and (max-width: 1200px) {
-  .page {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}

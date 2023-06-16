@@ -60,6 +60,7 @@
 
 .cards__like-button:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {

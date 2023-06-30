@@ -27,7 +27,6 @@
   background-color: #ffffff;
   margin: auto;
   padding: 0 36px 36px;
-  margin: auto;
   border-radius: 10px;
   position: relative;
   width: 358px;
@@ -99,10 +98,6 @@
   margin-top: 0;
   padding-top: 34px;
   color: #000000;
-}
-
-.modal__input:last-of-type {
-  margin-bottom: 0;
 }
 
 .modal__preview {

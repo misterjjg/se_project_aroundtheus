@@ -1,5 +1,5 @@
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,10 +10,17 @@
   align-items: center;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
+  visibility: none;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
+  pointer-events: none;
 }
 
 .modal_opened {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .modal__container {
@@ -96,6 +103,16 @@
 
 .modal__input:last-of-type {
   margin-bottom: 0;
+}
+
+.modal__preview {
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  max-width: 75vw;
+  max-height: 75vh;
+  position: relative;
 }
 
 @media screen and (max-width: 480px) {

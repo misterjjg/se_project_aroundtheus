@@ -28,6 +28,10 @@
   object-fit: cover;
 }
 
+.cards__image:hover {
+  cursor: pointer;
+}
+
 .cards__description {
   background-color: #ffffff;
   color: #000000;
@@ -59,6 +63,26 @@
 }
 
 .cards__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.cards__like-button_active {
+  background-image: url("../images/Heart-active.svg");
+}
+
+.cards__delete-button {
+  background: transparent url("../images/Trashcan.svg") center no-repeat;
+  position: absolute;
+  border: none;
+  transition: opacity 0.5s linear;
+  width: 18px;
+  height: 19.3px;
+  top: 18px;
+  right: 15px;
+}
+
+.cards__delete-button:hover {
   opacity: 0.5;
   cursor: pointer;
 }

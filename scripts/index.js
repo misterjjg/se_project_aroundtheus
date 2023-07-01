@@ -53,8 +53,8 @@ const addNewCardUrlInput = document.querySelector("#add-card-url-input");
 // Preview
 const cardImage = document.querySelector(".modal__preview-image");
 const cardCaption = document.querySelector(".modal__caption");
-const cardPreviewModal = document.querySelector("#preview-modal");
-const cardPreviewCloseButton = cardPreviewModal.querySelector(
+const previewCardModal = document.querySelector("#preview-modal");
+const previewCardCloseButton = previewCardModal.querySelector(
   ".modal__close-button"
 );
 
@@ -90,18 +90,23 @@ function handleAddNewCardSubmit(e) {
   const link = addNewCardUrlInput.value;
   renderCard({ name, link }, cardList);
   closeModal(addNewCardModal);
+  addNewCardForm.reset();
 }
 
-function cardPreviewPicture(cardData) {
+function previewCardPicture(cardData) {
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardCaption.textContent = cardData.name;
-  openModal(cardPreviewModal);
+  openModal(previewCardModal);
 }
 
 function cardDelete(e) {
   e.target.closest(".cards__content").remove();
 }
+
+previewCardCloseButton.addEventListener("click", () =>
+  closeModal(previewCardModal)
+);
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -116,10 +121,7 @@ function getCardElement(cardData) {
 
   deleteButton.addEventListener("click", cardDelete);
 
-  cardImage.addEventListener("click", () => cardPreviewPicture(cardData));
-  cardPreviewCloseButton.addEventListener("click", () =>
-    closeModal(cardPreviewModal)
-  );
+  cardImage.addEventListener("click", () => previewCardPicture(cardData));
 
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;

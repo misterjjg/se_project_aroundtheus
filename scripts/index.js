@@ -25,6 +25,10 @@ const initialCards = [
   },
 ];
 
+// Things to do before next project:
+// 1) Make all modals universal under the tag popup so there is less code
+// 2) Disable the submit button on the add card when there is nothing written (maybe reset validation?)
+
 // Profile Edit
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -162,13 +166,29 @@ previewCardCloseButton.addEventListener("click", () =>
   closeModal(previewCardModal)
 );
 
-document.addEventListener("mousedown", (e) => {
+profileEditModal.addEventListener("mousedown", (e) => {
   if (
     e.target.classList.contains("modal") ||
     e.target.classList.contains("modal__close-button")
   ) {
     closeModal(profileEditModal);
+  }
+});
+
+previewCardModal.addEventListener("mousedown", (e) => {
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close-button")
+  ) {
     closeModal(previewCardModal);
+  }
+});
+
+addNewCardModal.addEventListener("mousedown", (e) => {
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close-button")
+  ) {
     closeModal(addNewCardModal);
   }
 });

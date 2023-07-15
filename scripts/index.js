@@ -148,23 +148,11 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 
-profileEditCloseModal.addEventListener("click", () =>
-  closeModal(profileEditModal)
-);
-
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 addNewCardButton.addEventListener("click", () => openModal(addNewCardModal));
 
-addNewCardCloseModal.addEventListener("click", () =>
-  closeModal(addNewCardModal)
-);
-
 addNewCardForm.addEventListener("submit", handleAddNewCardSubmit);
-
-previewCardCloseButton.addEventListener("click", () =>
-  closeModal(previewCardModal)
-);
 
 profileEditModal.addEventListener("mousedown", (e) => {
   if (

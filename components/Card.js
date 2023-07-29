@@ -1,5 +1,5 @@
-import { openPopup } from "../utils/utils";
-import { previewCardModal, cardCaption, cardImage } from "../pages";
+import { openPopup } from "../utils/utils.js";
+import { previewCardModal } from "../pages/index.js";
 
 export default class Card {
   constructor({ name, link }, cardSelector) {
@@ -10,21 +10,21 @@ export default class Card {
 
   _setEventListeners() {
     // ".cards__like-button";
-    const likeButton = this._cardElement
+    this._likeButton = this._cardElement
       .querySelector(".cards__like-button")
       .addEventListener("click", () => {
         this._handleLikeIcon();
       });
 
     // ".cards__delete-button"
-    const deleteButton = this._cardElement
+    this._deleteButton = this._cardElement
       .querySelector(".cards__delete-button")
       .addEventListener("click", () => {
         this._handleDeleteCard();
       });
 
     //#preview-modal
-    const previewCard = this._cardElement
+    this._previewCard = this._cardElement
       .querySelector(".cards__image")
       .addEventListener("click", () => this._handlePreviewCard());
   }
@@ -41,6 +41,8 @@ export default class Card {
   }
 
   _handlePreviewCard() {
+    const cardImage = document.querySelector(".modal__preview-image");
+    const cardCaption = document.querySelector(".modal__caption");
     cardImage.src = this._link;
     cardImage.alt = this._name;
     cardCaption.textContent = this._name;
@@ -48,19 +50,22 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardElement = document
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector(".cards__content")
       .cloneNode(true);
-
-    return cardElement;
   }
 
   getView() {
     // get the card view
     this._cardElement = this._getTemplate();
-    this._cardElement.querySelector(".cards__image").src = this._link;
-    this._cardElement.querySelector(".cards__title").textContent = this._name;
+
+    this._cardImageElement = this._cardElement.querySelector(".cards__image");
+    this._cardImageElement.src = this._link;
+    this._cardImageElement.alt = this._name;
+
+    this._cardTitleElement = this._cardElement.querySelector(".cards__title");
+    this._cardTitleElement.textContent = this._name;
     // set event listeners
     this._setEventListeners();
     // return the card

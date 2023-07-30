@@ -29,6 +29,11 @@ const initialCards = [
   },
 ];
 
+// Improvements to make before next Project
+// 1) add name attribute to forms
+// 2) create separate function for making a card
+// 3) make form vaildator universal
+
 // Profile Edit
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -75,7 +80,7 @@ function handleAddNewCardSubmit(e) {
   renderCard({ name, link }, cardList);
   closePopup(addNewCardModal);
   addNewCardForm.reset();
-  addFormValidator._toggleButtonState();
+  addFormValidator.toggleButtonState();
 }
 
 function renderCard(cardData) {

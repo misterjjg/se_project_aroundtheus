@@ -47,7 +47,7 @@ export default class FormValidator {
     return;
   }
 
-  _toggleButtonState() {
+  toggleButtonState() {
     if (this._hasInvalidInput(this._input)) {
       this._disableButton();
     } else {
@@ -58,12 +58,12 @@ export default class FormValidator {
   _setEventListeners() {
     this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    this._toggleButtonState();
+    this.toggleButtonState();
 
     this._inputElements.forEach((inputElement) => {
       inputElement.addEventListener("input", (e) => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState();
+        this.toggleButtonState();
       });
     });
   }
@@ -76,3 +76,6 @@ export default class FormValidator {
     this._setEventListeners();
   }
 }
+
+// Improvements for next Project
+// 1) Include resetValidation method and call it for open buttons

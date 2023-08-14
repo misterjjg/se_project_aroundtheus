@@ -1,13 +1,14 @@
-import { openPopup } from "../utils/utils.js";
-import { previewCardModal } from "../pages/index.js";
-const cardImage = document.querySelector(".modal__preview-image");
-const cardCaption = document.querySelector(".modal__caption");
+// import { openPopup } from "../utils/utils.js";
+// import { previewCardModal } from "../pages/index.js";
+// const cardImage = document.querySelector(".modal__preview-image");
+// const cardCaption = document.querySelector(".modal__caption");
 
 export default class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _setEventListeners() {
@@ -28,7 +29,9 @@ export default class Card {
     //#preview-modal
     this._cardElement
       .querySelector(".cards__image")
-      .addEventListener("click", () => this._handlePreviewCard());
+      .addEventListener("click", () => {
+        this._handleCardClick({ name: this._name, link: this._link });
+      });
   }
 
   _handleLikeIcon() {
@@ -42,13 +45,6 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handlePreviewCard() {
-    cardImage.src = this._link;
-    cardImage.alt = this._name;
-    cardCaption.textContent = this._name;
-    openPopup(previewCardModal);
-  }
-
   _getTemplate() {
     return document
       .querySelector(this._cardSelector)
@@ -59,9 +55,12 @@ export default class Card {
   getView() {
     this._cardElement = this._getTemplate();
 
-    this._cardElement.querySelector(".cards__image").src = this._link;
-    this._cardElement.querySelector(".cards__image").alt = this._name;
-    this._cardElement.querySelector(".cards__title").textContent = this._name;
+    const cardImage = this._cardElement.querySelector(".cards__image");
+    const cardTitle = this._cardElement.querySelector(".cards__title");
+
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
+    cardTitle.textContent = this._name;
 
     this._setEventListeners();
 

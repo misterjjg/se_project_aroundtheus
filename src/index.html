@@ -13,7 +13,6 @@
     />
     <meta name="author" content="Joshua Gonzalez" />
     <title>Around the U.S</title>
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./images/favicon.ico" />
   </head>
   <body class="page">
@@ -21,7 +20,7 @@
       <header class="header page__section">
         <img
           class="header__logo"
-          src="./images/Around-the-US-Title.svg"
+          src="<%=require('./images/Around-the-US-Title.svg')%>"
           alt="around-the-us-logo"
         />
       </header>
@@ -29,7 +28,7 @@
         <section class="profile page__section">
           <img
             class="profile__image"
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="avatar"
           />
           <div class="profile__info">
@@ -159,7 +158,5 @@
         </div>
       </li>
     </template>
-
-    <script src="./pages/index.js" type="module" defer></script>
   </body>
 </html>

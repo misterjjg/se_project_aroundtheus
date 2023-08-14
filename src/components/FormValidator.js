@@ -5,7 +5,12 @@ export default class FormValidator {
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
+
     this._form = formElement;
+
+    this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
+
+    this._submitButton = this._form.querySelector(this._submitButtonSelector);
   }
 
   _showInputError(input) {
@@ -55,13 +60,21 @@ export default class FormValidator {
     }
   }
 
-  _setEventListeners() {
-    this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
-    this._submitButton = this._form.querySelector(this._submitButtonSelector);
+  resetValidation() {
     this.toggleButtonState();
 
     this._inputElements.forEach((inputElement) => {
-      inputElement.addEventListener("input", (e) => {
+      this._hideInputError(inputElement);
+    });
+  }
+
+  _setEventListeners() {
+    // this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
+    // this._submitButton = this._form.querySelector(this._submitButtonSelector);
+    this.toggleButtonState();
+
+    this._inputElements.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
         this.toggleButtonState();
       });
@@ -76,6 +89,3 @@ export default class FormValidator {
     this._setEventListeners();
   }
 }
-
-// Improvements for next Project
-// 1) Include resetValidation method and call it for open buttons

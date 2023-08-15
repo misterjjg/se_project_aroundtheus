@@ -56,15 +56,15 @@ const previewCardModal = document.querySelector("#preview-modal");
 // Functions
 
 function handleProfileFormSubmit(inputValues) {
-  const { nameInfo, jobInfo } = inputValues;
-  userInfo.setUserInfo(nameInfo, jobInfo);
+  const { title, description } = inputValues;
+  userInfo.setUserInfo(title, description);
   profileEditPopup.close();
 }
 
 function handleNewCardSubmit(inputValues) {
-  const { name, link } = inputValues;
-  const newCardElement = renderCard({ name, link });
-  section.addItem(newCardElement);
+  const { title, url } = inputValues;
+  const element = renderCard(title, url);
+  section.addItem(element);
   addNewCardPopup.close();
 }
 
@@ -146,5 +146,3 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 initialCards.forEach((cardData) => renderCard(cardData, cardList));
-
-export { previewCardModal };

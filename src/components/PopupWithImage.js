@@ -10,10 +10,10 @@ export default class PopupWithImage extends Popup {
     );
   }
 
-  open(data) {
-    this._previewImageModal.src = data.link;
-    this._previewImageModal.alt = data.name;
-    this._previewImageTitle.textContent = data.name;
+  open(caption, imageUrl) {
+    this._previewImageModal.src = imageUrl;
+    this._previewImageModal.alt = caption;
+    this._previewImageTitle.textContent = caption;
     super.open();
   }
 }

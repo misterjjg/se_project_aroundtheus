@@ -55,8 +55,9 @@ const previewCardModal = document.querySelector("#preview-modal");
 
 // Functions
 
-function handleProfileFormSubmit(inputValue) {
-  userInfo.setUserInfo(inputValue);
+function handleProfileFormSubmit(inputValues) {
+  const { nameInfo, jobInfo } = inputValues;
+  userInfo.setUserInfo(nameInfo, jobInfo);
   profileEditPopup.close();
 }
 
@@ -67,14 +68,14 @@ function handleNewCardSubmit(inputValues) {
   addNewCardPopup.close();
 }
 
-function handleCardClick({ name, link }) {
-  cardPreviewPopup.open(name, link);
+function handleCardClick(caption, imageUrl) {
+  cardPreviewPopup.open(caption, imageUrl);
 }
 
 function renderCard(cardData) {
   const card = new Card(cardData, "#card-template", handleCardClick);
   const cardElement = card.getView();
-  cardList.prepend(cardElement);
+  return cardElement;
 }
 
 // Event Listeners

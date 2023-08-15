@@ -4,54 +4,18 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+import {
+  initialCards,
+  profileEditButton,
+  profileTitleInput,
+  profileDescriptionInput,
+  cardList,
+  addNewCardButton,
+  addNewCardForm,
+  validationSettings,
+  profileEditForm,
+} from "../utils/constants.js";
 import "../pages/index.css";
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
-// Profile Edit Variables
-const profileEditButton = document.querySelector("#profile-edit-button");
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-
-// Cards Variables
-const cardList = document.querySelector(".cards__list");
-
-// Add New Card Variables
-const addNewCardButton = document.querySelector("#profile-add-button");
-const addNewCardModal = document.querySelector("#add-card-modal");
-const addNewCardForm = addNewCardModal.querySelector(".modal__form");
-
-// Preview Card Varibales
-const previewCardModal = document.querySelector("#preview-modal");
 
 // Functions
 
@@ -63,8 +27,8 @@ function handleProfileFormSubmit(inputValues) {
 
 function handleNewCardSubmit(inputValues) {
   const { title, url } = inputValues;
-  const element = renderCard(title, url);
-  section.addItem(element);
+  const newCardData = renderCard({ title, url });
+  section.addItem(newCardData);
   addNewCardPopup.close();
 }
 
@@ -74,8 +38,7 @@ function handleCardClick(caption, imageUrl) {
 
 function renderCard(cardData) {
   const card = new Card(cardData, "#card-template", handleCardClick);
-  const cardElement = card.getView();
-  return cardElement;
+  return card.getView();
 }
 
 // Event Listeners
@@ -125,16 +88,6 @@ const addNewCardPopup = new PopupWithForm(
 
 //Preview Card
 const cardPreviewPopup = new PopupWithImage("#preview-modal");
-
-// Validation
-const validationSettings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
 
 const editFormValidator = new FormValidator(
   validationSettings,

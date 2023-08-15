@@ -27,7 +27,7 @@ function handleProfileFormSubmit(inputValues) {
 
 function handleNewCardSubmit(inputValues) {
   const { title, url } = inputValues;
-  const newCardData = renderCard({ title, url });
+  const newCardData = renderCard({ name: title, link: url });
   section.addItem(newCardData);
   addNewCardPopup.close();
 }
@@ -55,7 +55,7 @@ addNewCardButton.addEventListener("click", () => {
   addFormValidator.resetValidation();
 });
 
-//Card Section
+//Card Section Instance
 const section = new Section(
   {
     items: initialCards,
@@ -69,7 +69,7 @@ const section = new Section(
 
 section.renderItems();
 
-//Edit Profile Form
+//Edit Profile Form Instance
 const userInfo = new UserInfo(
   document.querySelector(".profile__title"),
   document.querySelector(".profile__description")
@@ -80,13 +80,13 @@ const profileEditPopup = new PopupWithForm(
   handleProfileFormSubmit
 );
 
-//Add New Card
+//Add New Card Instance
 const addNewCardPopup = new PopupWithForm(
   "#add-card-modal",
   handleNewCardSubmit
 );
 
-//Preview Card
+//Preview Card Instance
 const cardPreviewPopup = new PopupWithImage("#preview-modal");
 
 const editFormValidator = new FormValidator(
@@ -97,5 +97,3 @@ const addFormValidator = new FormValidator(validationSettings, addNewCardForm);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-initialCards.forEach((cardData) => renderCard(cardData, cardList));

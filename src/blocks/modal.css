@@ -131,6 +131,11 @@
   border-radius: 2px;
 }
 
+.modal__save-button_disabled:hover {
+  opacity: 0.2;
+  cursor: default;
+}
+
 @media screen and (max-width: 480px) {
   .modal__close-button {
     width: 26px;

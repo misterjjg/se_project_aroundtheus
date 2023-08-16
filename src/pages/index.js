@@ -17,44 +17,6 @@ import {
 } from "../utils/constants.js";
 import "../pages/index.css";
 
-// Functions
-
-function handleProfileFormSubmit(inputValues) {
-  const { title, description } = inputValues;
-  userInfo.setUserInfo(title, description);
-  profileEditPopup.close();
-}
-
-function handleNewCardSubmit(inputValues) {
-  const { title, url } = inputValues;
-  const newCardData = renderCard({ name: title, link: url });
-  section.addItem(newCardData);
-  addNewCardPopup.close();
-}
-
-function handleCardClick(caption, imageUrl) {
-  cardPreviewPopup.open(caption, imageUrl);
-}
-
-function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleCardClick);
-  return card.getView();
-}
-
-// Event Listeners
-profileEditButton.addEventListener("click", () => {
-  const { profileName, description } = userInfo.getUserInfo();
-  profileTitleInput.value = profileName;
-  profileDescriptionInput.value = description;
-  profileEditPopup.open();
-  editFormValidator.resetValidation();
-});
-
-addNewCardButton.addEventListener("click", () => {
-  addNewCardPopup.open();
-  addFormValidator.resetValidation();
-});
-
 //Card Section Instance
 const section = new Section(
   {
@@ -97,3 +59,45 @@ const addFormValidator = new FormValidator(validationSettings, addNewCardForm);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+
+// Functions
+
+function handleProfileFormSubmit(inputValues) {
+  const { title, description } = inputValues;
+  userInfo.setUserInfo(title, description);
+  profileEditPopup.close();
+}
+
+function handleNewCardSubmit(inputValues) {
+  const { title, url } = inputValues;
+  const newCardData = renderCard({ name: title, link: url });
+  section.addItem(newCardData);
+  addNewCardPopup.close();
+}
+
+function handleCardClick(caption, imageUrl) {
+  cardPreviewPopup.open(caption, imageUrl);
+}
+
+function renderCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleCardClick);
+  return card.getView();
+}
+
+// Event Listeners
+profileEditButton.addEventListener("click", () => {
+  const { profileName, description } = userInfo.getUserInfo();
+  profileTitleInput.value = profileName;
+  profileDescriptionInput.value = description;
+  profileEditPopup.open();
+  editFormValidator.resetValidation();
+});
+
+addNewCardButton.addEventListener("click", () => {
+  addNewCardPopup.open();
+  addFormValidator.resetValidation();
+});
+
+profileEditPopup.setEventListeners();
+addNewCardPopup.setEventListeners();
+cardPreviewPopup.setEventListeners();

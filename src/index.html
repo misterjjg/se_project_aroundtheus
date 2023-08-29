@@ -108,7 +108,7 @@
           <input
             class="modal__input"
             type="text"
-            name="title"
+            name="name"
             id="add-card-title-input"
             placeholder="Title"
             required
@@ -119,7 +119,7 @@
           <input
             class="modal__input"
             type="url"
-            name="url"
+            name="link"
             id="add-card-url-input"
             placeholder="Image URL"
             required
@@ -145,6 +145,49 @@
         ></button>
         <img class="modal__preview-image" alt="whitespace" src="#" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <!--Delete Card Modal-->
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-button"
+          id="delete-card-close-modal"
+        ></button>
+        <h3 class="modal__heading">Are you sure?</h3>
+        <form
+          class="modal__form"
+          id="delete-card-modal-form"
+          name="delete-form"
+        >
+          <button type="submit" class="modal__save-button">Yes</button>
+        </form>
+      </div>
+    </div>
+
+    <!--Avatar Edit Modal-->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-button"
+          id="avatar-edit-close-modal"
+        ></button>
+        <h3 class="modal__heading">Change Profile Picture</h3>
+        <form class="modal__form">
+          <input
+            class="modal__input"
+            type="url"
+            name="url"
+            id="avatar-input-url"
+            placeholder="URL"
+            required
+          />
+          <span class="modal__error" id="avatar-edit-url-input-error"></span>
+          <button type="submit" class="modal__save-button">Save</button>
+        </form>
       </div>
     </div>
 

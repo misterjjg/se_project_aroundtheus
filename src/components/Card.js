@@ -4,11 +4,20 @@
 // const cardCaption = document.querySelector(".modal__caption");
 
 export default class Card {
-  constructor({ name, link }, cardSelector, handleCardClick) {
-    this._name = name;
-    this._link = link;
-    this._cardSelector = cardSelector;
+  constructor(
+    data,
+    templateSelector,
+    handleCardClick,
+    handleDeleteClick,
+    handleLikeClick
+  ) {
+    this.isLiked = data.isLiked;
+    this._name = data.name;
+    this._link = data.link;
+    this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
+    this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
   }
 
   _setEventListeners() {
@@ -40,9 +49,26 @@ export default class Card {
       .classList.toggle("cards__like-button_active");
   }
 
+  _toggleLikeButton() {
+    if (this.isLiked) {
+      this._likeButton.classList.add("cards__like-button_active");
+    } else {
+      this._likeButton.classList.remove("cards__like-button_active");
+    }
+  }
+
+  updateLikeIcon(isLiked) {
+    this.isLiked = isLiked;
+    this._toggleLikeButton();
+  }
+
   _handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  removeCardElement() {
+    this._cardElement.remove();
   }
 
   _handlePreviewDisplay() {
@@ -51,7 +77,7 @@ export default class Card {
 
   _getTemplate() {
     return document
-      .querySelector(this._cardSelector)
+      .querySelector(`${this._templateSelector}`)
       .content.querySelector(".cards__content")
       .cloneNode(true);
   }
@@ -61,6 +87,7 @@ export default class Card {
 
     const cardImage = this._cardElement.querySelector(".cards__image");
     const cardTitle = this._cardElement.querySelector(".cards__title");
+    this._likeButton = this._cardElement.querySelector(".cards__like-button");
 
     cardImage.src = this._link;
     cardImage.alt = this._name;

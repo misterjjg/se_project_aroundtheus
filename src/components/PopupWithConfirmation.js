@@ -4,37 +4,28 @@ export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
-    this._submitButton = this._popupForm.querySelector(".modal__button_delete");
-    this._submitButtonText = this._submitButton.textContent;
+    this._saveButton = this._popupForm.querySelector(".modal__save-button");
   }
 
   setSubmitAction(action) {
-    this._handleFormSubmit = action;
+    this._handleConfirm = action;
   }
 
-  setLoadingButton(isLoading, loadingText = "Removing...") {
+  renderLoading(isLoading) {
     if (isLoading) {
-      this._submitButton.textContent = loadingText;
-      this._submitButton.disabled = true;
+      this._saveButton.textContent = "Loading...";
     } else {
-      this._submitButton.textContent = this._submitButtonText;
-      this._submitButton.disabled = false;
+      this._saveButton.textContent = "Yes";
     }
   }
 
+  _handleSubmit = (evt) => {
+    evt.preventDefault();
+    this._handleConfirm();
+  };
+
   setEventListeners() {
     super.setEventListeners();
-
-    this._submitForm = (e) => {
-      e.preventDefault();
-      this._handleFormSubmit(e);
-    };
-
-    this._popupForm.addEventListener("submit", this._submitForm);
-  }
-
-  _removeEventListeners() {
-    super._removeEventListeners();
-    this._popupForm.removeEventListeners("submit", this._submitForm);
+    this._popupForm.addEventListener("submit", this._handleSubmit);
   }
 }

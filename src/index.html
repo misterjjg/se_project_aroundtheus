@@ -31,6 +31,19 @@
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="avatar"
           />
+          <div class="profile__image-edit-container">
+            <button
+              class="profile__image-button"
+              type="button"
+              id="profile-avatar__image-button"
+            >
+              <img
+                src="<%=require('./images/Edit-Button.svg')%>"
+                class="profile__image-hover"
+                alt="profile image button"
+              />
+            </button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -68,7 +81,7 @@
           <input
             class="modal__input"
             type="text"
-            name="title"
+            name="name"
             id="profile-title-input"
             placeholder="Name"
             required
@@ -79,7 +92,7 @@
           <input
             class="modal__input"
             type="text"
-            name="description"
+            name="about"
             id="profile-description-input"
             placeholder="Description"
             required
@@ -149,20 +162,12 @@
     </div>
 
     <!--Delete Card Modal-->
-    <div class="modal" id="delete-card-modal">
-      <div class="modal__container">
-        <button
-          type="button"
-          class="modal__close-button"
-          id="delete-card-close-modal"
-        ></button>
-        <h3 class="modal__heading">Are you sure?</h3>
-        <form
-          class="modal__form"
-          id="delete-card-modal-form"
-          name="delete-form"
-        >
+    <div class="modal" id="delete-modal">
+      <div class="modal__delete-container">
+        <form class="modal__form modal__delete-form">
+          <h2 class="modal__delete-title">Are you sure?</h2>
           <button type="submit" class="modal__save-button">Yes</button>
+          <button type="button" class="modal__close-button"></button>
         </form>
       </div>
     </div>
@@ -170,27 +175,24 @@
     <!--Avatar Edit Modal-->
     <div class="modal" id="avatar-edit-modal">
       <div class="modal__container">
-        <button
-          type="button"
-          class="modal__close-button"
-          id="avatar-edit-close-modal"
-        ></button>
-        <h3 class="modal__heading">Change Profile Picture</h3>
-        <form class="modal__form">
+        <form class="modal__form" id="avatar-edit-form" novalidate>
+          <h2 class="modal__heading">Change Profile Picture</h2>
           <input
             class="modal__input"
             type="url"
-            name="url"
-            id="avatar-input-url"
-            placeholder="URL"
+            name="avatar"
+            id="avatar-edit-url-input"
+            placeholder="Image Link"
             required
           />
           <span class="modal__error" id="avatar-edit-url-input-error"></span>
           <button type="submit" class="modal__save-button">Save</button>
+          <button type="button" class="modal__close-button"></button>
         </form>
       </div>
     </div>
 
+    <!--Template-->
     <template id="card-template">
       <li class="cards__content">
         <img class="cards__image" src="" alt="" />
@@ -198,6 +200,7 @@
         <div class="cards__description">
           <h2 class="cards__title"></h2>
           <button type="button" class="cards__like-button"></button>
+          <h3 class="cards__counter">20</h3>
         </div>
       </li>
     </template>

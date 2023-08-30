@@ -51,3 +51,19 @@ export const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+//Selectors
+export const selectors = {
+  cardSection: ".cards__list",
+  cardTemplate: "#card-template",
+  previewModal: "#preview-modal",
+  addCardPopupSelector: "#add-card-modal",
+  profilePopupSelector: "#profile-edit-modal",
+  avatarPopupSelector: "#avatar-edit-modal",
+};
+
+//Avatar Variables
+export const avatarEditForm = document.querySelector("#avatar-edit-form");
+export const avatarEditButton = document.querySelector(
+  "#profile-avatar__image-button"
+);

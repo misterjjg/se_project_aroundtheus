@@ -51,38 +51,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   })
   .catch(console.error);
 
-//Card Section Instance
-// Promise.all([api.getInitialCards(), api.getUserInfo()])
-//   .then(([initialCards, userData]) => {
-//     userInfo.setUserInfo(userData.name, userData.about);
-//     userInfo.setUserAvatar(userData.avatar);
-//     section = new Section(
-//       {
-//         items: initialCards,
-//         renderer: (cardData) => {
-//           const cardElement = renderCard(cardData);
-//           section.addItem(cardElement);
-//         },
-//       },
-//       cardList
-//     );
-//     section.renderItems();
-//   })
-//   .catch(console.error);
-
-// const section = new Section(
-//   {
-//     items: initialCards,
-//     renderer: (cardData) => {
-//       const cardElement = renderCard(cardData);
-//       section.addItem(cardElement);
-//     },
-//   },
-//   cardList
-// );
-
-// section.renderItems();
-
 //Edit Profile Form Instance
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__title",

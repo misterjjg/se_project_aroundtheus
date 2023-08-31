@@ -36,6 +36,5 @@ export default class Popup {
 
   setEventListeners() {
     this._popupElement.addEventListener("mousedown", this._closeClickOutside);
-    this.close();
   }
 }

@@ -20,7 +20,6 @@
   white-space: nowrap;
   overflow: hidden;
   font-family: "Inter", Arial, sans-serif;
-  text-align: center;
   font-size: 42px;
   font-weight: 500;
   line-height: 1.1;
@@ -77,6 +76,24 @@
   margin-right: 24px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.profile__image-button {
+  background: transparent url(../images/Edit-Button.svg) center no-repeat;
+  opacity: 0;
+  background-size: 26px;
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  left: 0;
+  border-radius: 50%;
+  background-color: #000;
+  border-style: none;
+  cursor: pointer;
+}
+
+.profile__image-button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 757px) {

@@ -26,19 +26,26 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="avatar"
-          />
+          <div class="profile__avatar-container">
+            <img
+              class="profile__image"
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="avatar"
+            />
+            <button
+              class="profile__image-button"
+              type="button"
+              id="profile-avatar__image-button"
+            ></button>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               type="button"
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button
             type="button"
@@ -68,7 +75,7 @@
           <input
             class="modal__input"
             type="text"
-            name="title"
+            name="name"
             id="profile-title-input"
             placeholder="Name"
             required
@@ -79,7 +86,7 @@
           <input
             class="modal__input"
             type="text"
-            name="description"
+            name="about"
             id="profile-description-input"
             placeholder="Description"
             required
@@ -108,7 +115,7 @@
           <input
             class="modal__input"
             type="text"
-            name="title"
+            name="name"
             id="add-card-title-input"
             placeholder="Title"
             required
@@ -119,7 +126,7 @@
           <input
             class="modal__input"
             type="url"
-            name="url"
+            name="link"
             id="add-card-url-input"
             placeholder="Image URL"
             required
@@ -148,6 +155,40 @@
       </div>
     </div>
 
+    <!--Delete Card Modal-->
+    <div class="modal" id="delete-modal">
+      <div class="modal__delete-container modal__container">
+        <form class="modal__form modal__delete-form">
+          <h2 class="modal__delete-title modal__heading">Are you sure?</h2>
+          <button type="submit" class="modal__save-button delete-button">
+            Yes
+          </button>
+          <button type="button" class="modal__close-button"></button>
+        </form>
+      </div>
+    </div>
+
+    <!--Avatar Edit Modal-->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <form class="modal__form" id="avatar-edit-form" novalidate>
+          <h2 class="modal__heading">Change Profile Picture</h2>
+          <input
+            class="modal__input"
+            type="url"
+            name="avatar"
+            id="avatar-edit-url-input"
+            placeholder="Image Link"
+            required
+          />
+          <span class="modal__error" id="avatar-edit-url-input-error"></span>
+          <button type="submit" class="modal__save-button">Save</button>
+          <button type="button" class="modal__close-button"></button>
+        </form>
+      </div>
+    </div>
+
+    <!--Template-->
     <template id="card-template">
       <li class="cards__content">
         <img class="cards__image" src="" alt="" />
@@ -155,6 +196,7 @@
         <div class="cards__description">
           <h2 class="cards__title"></h2>
           <button type="button" class="cards__like-button"></button>
+          <span class="cards__counter">20</span>
         </div>
       </li>
     </template>

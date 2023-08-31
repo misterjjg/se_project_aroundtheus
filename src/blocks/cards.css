@@ -1,6 +1,7 @@
 .cards {
-  max-width: 880px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
 }
 
 .cards__list {
@@ -11,13 +12,12 @@
   padding: 0;
   list-style-type: none;
   padding-top: 51px;
-  margin: auto;
+  margin: 0;
 }
 
 .cards__content {
   display: flex;
   flex-direction: column;
-  position: relative;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -38,7 +38,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 21px 25px 21px;
+  padding: 25px 25px 20px 20px;
+  position: relative;
 }
 
 .cards__title {
@@ -47,7 +48,6 @@
   font-weight: 900;
   line-height: 1.2;
   margin: 0;
-  text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -57,9 +57,11 @@
   background: transparent url("../images/Heart.svg") center no-repeat;
   width: 21px;
   height: 18px;
-  margin: 0;
   border: none;
   transition: opacity 0.5s linear;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
 }
 
 .cards__like-button:hover {
@@ -78,13 +80,27 @@
   transition: opacity 0.5s linear;
   width: 18px;
   height: 19.3px;
-  top: 18px;
-  right: 15px;
+  margin: 18px 15px 0 249px;
 }
 
 .cards__delete-button:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.cards__counter {
+  position: relative;
+  width: 9px;
+  height: 13px;
+  top: 2px;
+  right: 1px;
+  font-family: "Inter", Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
 }
 
 @media screen and (max-width: 480px) {

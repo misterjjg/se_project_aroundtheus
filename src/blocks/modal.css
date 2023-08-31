@@ -32,6 +32,10 @@
   width: 358px;
 }
 
+.modal__delete-container {
+  max-width: 430px;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -49,7 +53,6 @@
   line-height: 1.2;
   color: rgba(0, 0, 0, 1);
   padding-bottom: 13px;
-  /* margin-bottom: 30px; */
   width: 100%;
 }
 
@@ -94,7 +97,6 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 1.2;
-  margin-bottom: 54px;
   margin-top: 0;
   padding-top: 34px;
   color: #000000;

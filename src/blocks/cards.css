@@ -87,11 +87,11 @@
   cursor: pointer;
 }
 
-.cards__counter {
+/* .cards__counter {
   margin: 6px auto 0;
   color: green;
   font-size: 14px;
-}
+} */
 
 @media screen and (max-width: 480px) {
   .cards {

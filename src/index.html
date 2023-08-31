@@ -26,32 +26,26 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="avatar"
-          />
-          <div class="profile__image-edit-container">
+          <div class="profile__avatar-container">
+            <img
+              class="profile__image"
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="avatar"
+            />
             <button
               class="profile__image-button"
               type="button"
               id="profile-avatar__image-button"
-            >
-              <img
-                src="<%=require('./images/Edit-Button.svg')%>"
-                class="profile__image-hover"
-                alt="profile image button"
-              />
-            </button>
+            ></button>
           </div>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               type="button"
               class="profile__edit-button"
               id="profile-edit-button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button
             type="button"
@@ -163,10 +157,12 @@
 
     <!--Delete Card Modal-->
     <div class="modal" id="delete-modal">
-      <div class="modal__delete-container">
+      <div class="modal__delete-container modal__container">
         <form class="modal__form modal__delete-form">
-          <h2 class="modal__delete-title">Are you sure?</h2>
-          <button type="submit" class="modal__save-button">Yes</button>
+          <h2 class="modal__delete-title modal__heading">Are you sure?</h2>
+          <button type="submit" class="modal__save-button delete-button">
+            Yes
+          </button>
           <button type="button" class="modal__close-button"></button>
         </form>
       </div>

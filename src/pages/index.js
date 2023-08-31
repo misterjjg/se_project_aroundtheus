@@ -84,11 +84,11 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 // section.renderItems();
 
 //Edit Profile Form Instance
-const userInfo = new UserInfo(
-  document.querySelector(".profile__title"),
-  document.querySelector(".profile__description"),
-  document.querySelector(".profile__image")
-);
+const userInfo = new UserInfo({
+  profileNameSelector: ".profile__title",
+  profileDescriptionSelector: ".profile__description",
+  profileAvatar: ".profile__image",
+});
 
 const profileEditPopup = new PopupWithForm(
   "#profile-edit-modal",
@@ -121,7 +121,7 @@ addFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
 
 //Delete Card Instance
-const deleteCardPopup = new PopupWithConfirmation("#delete-card-modal");
+const deleteCardPopup = new PopupWithConfirmation("#delete-modal");
 
 //Avatar Edit Instance
 const avatarEditPopup = new PopupWithForm(
@@ -194,10 +194,10 @@ function renderCard(cardData) {
     cardData.likes,
     cardData._id,
     userId,
+    cardSelector,
     handleCardClick,
     handleDeleteClick,
-    handleLikeClick,
-    cardSelector
+    handleLikeClick
   );
   return card.getView();
 }
